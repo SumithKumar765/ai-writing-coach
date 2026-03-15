@@ -1,0 +1,88 @@
+/* App.css */
+
+/* Global Reset - Prevents default browser margins */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Overriding Vite's default root behavior */
+#root {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* The main flexible workspace */
+.main-workspace {
+  flex: 1;
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+  box-sizing: border-box;
+  /* Default to a row layout for desktop */
+  flex-direction: row; 
+}
+
+/* The right pane where feedback goes */
+.feedback-pane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Keeps the border fixed on desktop */
+}
+
+/* The scrollable area inside the feedback pane */
+.feedback-content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto; /* Independent scroll for feedback on desktop */
+  line-height: 1.8;
+}
+
+/* --- MOBILE RESPONSIVE STYLES --- */
+@media (max-width: 768px) {
+  
+  /* Remove the fixed 100vh so the whole page can scroll on mobile */
+  .app-container {
+    height: auto !important;
+    min-height: 100vh;
+    overflow: visible !important;
+  }
+
+  /* Stack the editor and feedback on top of each other */
+  .main-workspace {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  /* Give the text area a fixed height so it doesn't shrink to zero */
+  .editor-textarea {
+    min-height: 300px;
+  }
+
+  /* Change the feedback pane to grow with content instead of fixed scrolling */
+  .feedback-pane {
+    overflow: visible;
+  }
+
+  .feedback-content {
+    overflow-y: visible;
+    padding: 1rem;
+  }
+
+  /* Make header elements wrap if needed */
+  .app-header {
+    flex-direction: column;
+    height: auto !important;
+    padding: 15px 10px !important;
+    gap: 15px;
+  }
+  
+  .header-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
