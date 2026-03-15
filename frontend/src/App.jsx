@@ -23,7 +23,7 @@ function App() {
     setIsLoading(true);
     setFeedback(''); 
     try {
-      const response = await fetch('http://localhost:8000/api/analyze-text', {
+      const response = await fetch('https://ai-writing-coach-api.onrender.com/api/analyze-text', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text, mode })
