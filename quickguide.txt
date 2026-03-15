@@ -40,4 +40,4 @@ npm run dev
 (The frontend will now be running on http://localhost:5173)
 
 ### 3. Usage
-Open http://localhost:5173 in your browser, select your desired coaching mode (Academic, Business, or Creative), type your draft, and click "RUN COACH ANALYSIS"!
+Open http://localhost:5173 in your browser, select your    desired coaching mode (Academic, Business, or Creative), type your draft, and click "RUN COACH ANALYSIS"!
