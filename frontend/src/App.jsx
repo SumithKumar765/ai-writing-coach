@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
-import './App.css'; // <-- Import the new CSS file
+import './App.css'; 
 
 function App() {
   const [text, setText] = useState('');
@@ -84,10 +84,10 @@ function App() {
       </header>
 
       {/* 2. Main Workspace */}
-      <main className="main-workspace">
+      <main className="main-workspace" style={{ display: 'flex', flex: 1, padding: '2rem', gap: '2rem', overflow: 'hidden' }}>
         
         {/* Left Pane: Editor */}
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '15px' }}>
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '15px', minHeight: 0 }}>
           <textarea 
             className="editor-textarea"
             value={text}
@@ -104,7 +104,8 @@ function App() {
               border: `1px solid ${theme.border}`,
               outline: 'none',
               resize: 'none',
-              boxShadow: 'inset 0 2px 10px rgba(0,0,0,0.1)'
+              boxShadow: 'inset 0 2px 10px rgba(0,0,0,0.1)',
+              overflowY: 'auto' /* ADDED THIS: Forces the scrollbar on the left input box */
             }}
           />
           <button 
@@ -129,14 +130,24 @@ function App() {
 
         {/* Right Pane: Feedback Area */}
         <div className="feedback-pane" style={{ 
+          flex: 1,
+          display: 'flex', 
+          flexDirection: 'column', 
           backgroundColor: theme.card, 
           borderRadius: '12px', 
           border: `1px solid ${theme.border}`,
+          overflow: 'hidden',
+          minHeight: 0 /* ADDED THIS: Prevents the flex container from stretching off-screen */
         }}>
           <div style={{ padding: '15px 20px', borderBottom: `1px solid ${theme.border}`, fontWeight: 'bold', color: theme.accent }}>
             COACH'S FEEDBACK
           </div>
-          <div className="feedback-content">
+          
+          <div className="feedback-content" style={{ 
+            flex: 1, 
+            padding: '20px', 
+            overflowY: 'auto' /* ALREADY HERE: Forces the scrollbar on the right feedback box */
+          }}>
             {feedback ? (
               <ReactMarkdown>{feedback}</ReactMarkdown>
             ) : (

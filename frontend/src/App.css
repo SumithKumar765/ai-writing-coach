@@ -54,8 +54,9 @@ body, html {
 
   /* Stack the editor and feedback on top of each other */
   .main-workspace {
-    flex-direction: column;
-    padding: 10px;
+    flex-direction: column !important;
+    padding: 10px !important;
+    overflow: visible !important;
   }
 
   /* Give the text area a fixed height so it doesn't shrink to zero */
@@ -65,12 +66,13 @@ body, html {
 
   /* Change the feedback pane to grow with content instead of fixed scrolling */
   .feedback-pane {
-    overflow: visible;
+    overflow: visible !important;
+    min-height: auto !important;
   }
 
   .feedback-content {
-    overflow-y: visible;
-    padding: 1rem;
+    overflow-y: visible !important;
+    padding: 1rem !important;
   }
 
   /* Make header elements wrap if needed */
